@@ -72,3 +72,7 @@ _ReSharper*/
 coverage/
 *.lcov
 *.lcov.*
+
+# dependencies
+/.pnp
+.pnp.js
