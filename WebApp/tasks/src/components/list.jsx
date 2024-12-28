@@ -1,11 +1,21 @@
 import React from "react";
 
-function List() {
+function List({ list }) {
   return (
     <div>
-      <ul>
-        <li>Some task</li>
-      </ul>
+      {Array.isArray(list) && list.length > 0 ? (
+        <ul>
+          {list.map((item, key) => {
+            return (
+              <li key={key} id={`list-item-${key}`}>
+                {item}
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <div>No tasks found.</div>
+      )}
     </div>
   );
 }

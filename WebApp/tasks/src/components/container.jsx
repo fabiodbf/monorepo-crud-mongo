@@ -5,7 +5,7 @@ function Container() {
   return (
     <div>
       <h1>Some title component here</h1>
-      <List />
+      <List list={["batata"]} />
       <button>Some future buttom component here</button>
     </div>
   );
