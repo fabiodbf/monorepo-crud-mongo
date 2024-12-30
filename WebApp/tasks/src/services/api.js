@@ -5,63 +5,44 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Mock database
 const mockDatabase = {
-  users: [
-    { id: 1, name: "Alice", email: "alice@example.com" },
-    { id: 2, name: "Bob", email: "bob@example.com" },
-    { id: 3, name: "Charlie", email: "charlie@example.com" },
-  ],
-  posts: [
+  tasks: [
     {
       id: 1,
-      title: "Hello World",
-      content: "This is my first post!",
-      userId: 1,
+      text: "Complete the project documentation",
+      completed: false,
+      order: 1,
     },
-    {
-      id: 2,
-      title: "React is Great",
-      content: "React makes UI development so much easier.",
-      userId: 2,
-    },
-    {
-      id: 3,
-      title: "Mock APIs",
-      content: "Simulating APIs is super useful for development.",
-      userId: 3,
-    },
+    { id: 2, text: "Submit the weekly report", completed: true, order: 2 },
+    { id: 3, text: "Fix the login bug", completed: false, order: 3 },
   ],
 };
 
 // Fake API methods
-export const fetchUsers = async () => {
+export const fetchTasks = async () => {
   await delay(500); // Simulate network delay
-  return mockDatabase.users;
+  return mockDatabase.tasks;
 };
 
-export const fetchUserById = async (id) => {
+export const addTask = async (text, completed = false, order) => {
   await delay(500);
-  return mockDatabase.users.find((user) => user.id === id) || null;
-};
-
-export const fetchPosts = async () => {
-  await delay(500);
-  return mockDatabase.posts;
-};
-
-export const fetchPostsByUserId = async (userId) => {
-  await delay(500);
-  return mockDatabase.posts.filter((post) => post.userId === userId);
-};
-
-// Example of adding new data
-export const addPost = async (title, content, userId) => {
-  await delay(500);
-  const newPost = {
-    id: mockDatabase.posts.length + 1,
-    title,
-    content,
-    userId,
+  const newTask = {
+    id: mockDatabase.tasks.length + 1,
+    text,
+    completed,
+    order: order || mockDatabase.tasks.length + 1,
   };
-  mockDatabase.posts.push(newPost);
-  return newPost;
+  mockDatabase.tasks.push(newTask);
+  return newTask;
+};
+
+export const updateTasks = async (updatedTasks) => {
+  await delay(500);
+  mockDatabase.tasks = updatedTasks;
+  return mockDatabase.tasks;
+};
+
+export const deleteCompletedTasks = async () => {
+  await delay(500);
+  mockDatabase.tasks = mockDatabase.tasks.filter((task) => !task.completed);
+  return mockDatabase.tasks;
 };
