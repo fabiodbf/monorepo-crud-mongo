@@ -1,19 +1,56 @@
 #container {
-  background-color: blueviolet;
+  background-color: #ffeedd;
+  margin: 1em auto;
+  width: 80%;
+  max-width: 600px;
+  padding: 15px;
+  box-shadow: 0.2em 0.2em 0.5em 0.005em #00000080;
+  border-radius: 0.8em;
 }
 
-#list-container-header {
-  background-color: yellow;
-}
+#top {
+  display: flex;
+  border-bottom: 2px solid #999999aa;
 
-#header-controls {
-  background-color: plum;
+  div[id="container-heading"] {
+    flex: 3;
+
+    h1 {
+      /*change font family here*/
+      margin: 0;
+    }
+  }
+
+  div[id="top-controls"] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    flex: 1;
+
+    buttom {
+      flex: 1;
+    }
+  }
 }
 
 #list-wrapper {
-  background-color: aqua;
+  border: 1px solid #999999aa;
+  margin: 15px;
 }
 
 #bottom-controls {
+  display: flex;
   background-color: lime;
+
+  > div {
+    flex-grow: 1;
+    display: flex;
+    background-color: aqua;
+
+    button {
+      /*this guy should be a separate class*/
+      flex: 1;
+    }
+  }
 }

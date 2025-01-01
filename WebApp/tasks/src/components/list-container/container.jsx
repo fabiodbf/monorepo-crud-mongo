@@ -17,12 +17,12 @@ function Container() {
 
   return (
     <div id={styles["container"]}>
-      <div id={styles["list-container-header"]}>
-        <div>
+      <div id={styles["top"]}>
+        <div id="container-heading">
           <h1>Task List</h1>
         </div>
-        <div id={styles["header-controls"]}>
-          <button>Icon here</button>
+        <div id="top-controls">
+          <button>delete finished itens</button>
         </div>
       </div>
       <div id={styles["list-wrapper"]}>
@@ -30,7 +30,7 @@ function Container() {
       </div>
       <div id={styles["bottom-controls"]}>
         <div>
-          <button>Add task</button>
+          <button>+ add task</button>
         </div>
       </div>
     </div>
