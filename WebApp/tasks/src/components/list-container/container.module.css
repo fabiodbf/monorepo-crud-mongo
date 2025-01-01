@@ -1,0 +1,19 @@
+#container {
+  background-color: blueviolet;
+}
+
+#list-container-header {
+  background-color: yellow;
+}
+
+#header-controls {
+  background-color: plum;
+}
+
+#list-wrapper {
+  background-color: aqua;
+}
+
+#bottom-controls {
+  background-color: lime;
+}
