@@ -1,3 +1,5 @@
+@import url(../../styles/variables.css);
+
 #container {
   background-color: #ffeedd;
   margin: 1em auto;
@@ -10,13 +12,14 @@
 
 #top {
   display: flex;
-  border-bottom: 2px solid #999999aa;
+  border-bottom: 2px solid var(--transparent-gray);
 
   div[id="container-heading"] {
     flex: 3;
 
     h1 {
-      /*change font family here*/
+      font-size: 2em;
+      font-style: italic;
       margin: 0;
     }
   }
@@ -35,22 +38,24 @@
 }
 
 #list-wrapper {
-  border: 1px solid #999999aa;
+  border: 1px solid var(--transparent-gray);
   margin: 15px;
 }
 
 #bottom-controls {
   display: flex;
-  background-color: lime;
 
   > div {
     flex-grow: 1;
     display: flex;
-    background-color: aqua;
 
     button {
       /*this guy should be a separate class*/
       flex: 1;
+      padding: 0.4em;
+      border: 1px solid var(--transparent-gray);
+      border-radius: 0.8em;
+      font-size: 1em;
     }
   }
 }

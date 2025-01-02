@@ -30,7 +30,9 @@ function Container() {
       </div>
       <div id={styles["bottom-controls"]}>
         <div>
-          <button>+ add task</button>
+          <button>
+            <i className="fa fa-plus-square"></i>&nbsp;add task
+          </button>
         </div>
       </div>
     </div>
