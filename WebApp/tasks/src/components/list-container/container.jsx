@@ -22,7 +22,11 @@ function Container() {
           <h1>Task List</h1>
         </div>
         <div id="top-controls">
-          <button>delete finished itens</button>
+          <button className={styles["new-button"]}>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            &nbsp;
+            <span>clear finished</span>
+          </button>
         </div>
       </div>
       <div id={styles["list-wrapper"]}>
@@ -30,7 +34,7 @@ function Container() {
       </div>
       <div id={styles["bottom-controls"]}>
         <div>
-          <button type="button">
+          <button className={styles["new-button"]}>
             <i className="fa fa-plus-square"></i>
             &nbsp; add task
           </button>
