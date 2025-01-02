@@ -1,0 +1,16 @@
+@import url("../../styles/variables.css");
+
+.list {
+  > li {
+    margin: 8px 0px;
+    border-bottom: 1px solid var(--transparent-gray);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+}
+
+.finished {
+  color: var(--transparent-gray);
+  text-decoration: line-through;
+}

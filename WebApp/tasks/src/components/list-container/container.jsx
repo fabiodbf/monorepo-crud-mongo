@@ -25,7 +25,7 @@ function Container() {
           <button className={styles["new-button"]}>
             <i class="fa fa-trash" aria-hidden="true"></i>
             &nbsp;
-            <span>clear finished</span>
+            <span>delete all finished</span>
           </button>
         </div>
       </div>
