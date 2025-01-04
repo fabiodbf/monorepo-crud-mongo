@@ -15,6 +15,14 @@ function Container() {
     loadTasks();
   }, []);
 
+  const handleTaskToggle = (taskId) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
   return (
     <div id={styles["container"]}>
       <div id={styles["top"]}>
@@ -30,7 +38,7 @@ function Container() {
         </div>
       </div>
       <div id={styles["list-wrapper"]}>
-        <List list={tasks} />
+        <List list={tasks} onTaskToggle={handleTaskToggle} />
       </div>
       <div id={styles["bottom-controls"]}>
         <div>

@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./list.module.css";
 
-function List(list) {
+function List({ list, onTaskToggle }) {
   return (
     <div>
-      {Array.isArray(list.list) && list.list.length > 0 ? (
+      {Array.isArray(list) && list.length > 0 ? (
         <div>
           <ul className={styles["list"]}>
-            {list.list.map((item, key) => {
+            {list.map((item, key) => {
               return (
                 <li key={key} id={`list-item-${key}`}>
                   <input
@@ -16,6 +16,7 @@ function List(list) {
                     name={`ckbox-${key}`}
                     value={`ckbox-${item.id}`}
                     checked={item.completed}
+                    onChange={() => onTaskToggle(item.id)}
                   />
                   <label
                     for="vehicle1"
