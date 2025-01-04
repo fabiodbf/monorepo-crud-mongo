@@ -30,7 +30,7 @@ function Container() {
         </div>
       </div>
       <div id={styles["list-wrapper"]}>
-        <List list={tasks.map((task) => task.text)} />
+        <List list={tasks} />
       </div>
       <div id={styles["bottom-controls"]}>
         <div>
