@@ -3,7 +3,7 @@ import styles from "./list.module.css";
 import Checkbox from "../checkbox/checkbox";
 import Textbox from "../textbox/textbox";
 
-function List({ list, handleCompleteToggle, handleTxtChange }) {
+function List({ list, handleCompleteToggle, handleTextChange }) {
   return (
     <div>
       {Array.isArray(list) && list.length > 0 ? (
@@ -19,7 +19,7 @@ function List({ list, handleCompleteToggle, handleTxtChange }) {
                     />
                   </div>
                   <div className={styles.input_div_txt}>
-                    <Textbox item={item} handleTxtChange={handleTxtChange} />
+                    <Textbox item={item} handleTextChange={handleTextChange} />
                   </div>
                 </li>
               );

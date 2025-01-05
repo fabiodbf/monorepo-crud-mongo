@@ -24,8 +24,12 @@ function Container() {
     );
   };
 
-  const handleTextChange = () => {
-    console.log("do something");
+  const handleTextChange = (taskId, newText) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id == taskId ? { ...task, text: newText } : task
+      )
+    );
   };
 
   const handleTaskDeleteAllFinished = () => {

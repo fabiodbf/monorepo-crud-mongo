@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-.finished {
+.completed {
   color: var(--transparent-gray);
   text-decoration: line-through;
 }
