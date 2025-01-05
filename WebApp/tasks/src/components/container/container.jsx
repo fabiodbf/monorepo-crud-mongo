@@ -22,6 +22,7 @@ function Container() {
         task.id === taskId ? { ...task, completed: !task.completed } : task
       )
     );
+    //call api here
   };
 
   const handleTextChange = (taskId, newText) => {
@@ -30,12 +31,22 @@ function Container() {
         task.id == taskId ? { ...task, text: newText } : task
       )
     );
+    //call api here
   };
 
   const handleDeleteAllFinished = () => {
     setTasks((prevTasks) =>
       prevTasks.filter((task) => task.completed !== true)
     );
+    //call api here
+  };
+
+  const handleTaskCreation = () => {
+    setTasks((prevTasks) => [
+      ...prevTasks,
+      { id: 99, text: "", completed: false, order: 3 },
+    ]);
+    //call api here
   };
 
   return (
@@ -61,7 +72,11 @@ function Container() {
       </div>
       <div id="bottomcontrols" className={styles.bottomcontrols}>
         <div>
-          <Parenthesisbutton text="add task" icon={"fa-plus-square"} />
+          <Parenthesisbutton
+            text="add task"
+            action={handleTaskCreation}
+            icon={"fa-plus-square"}
+          />
         </div>
       </div>
     </div>
