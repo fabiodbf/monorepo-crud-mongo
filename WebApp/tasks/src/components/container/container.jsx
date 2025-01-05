@@ -32,7 +32,7 @@ function Container() {
     );
   };
 
-  const handleTaskDeleteAllFinished = () => {
+  const handleDeleteAllFinished = () => {
     setTasks((prevTasks) =>
       prevTasks.filter((task) => task.completed !== true)
     );
@@ -47,7 +47,7 @@ function Container() {
         <div id="topcontrols" className={styles.topcontrols}>
           <Parenthesisbutton
             text="delete all finished"
-            action={handleTaskDeleteAllFinished}
+            action={handleDeleteAllFinished}
             icon="fa-trash"
           />
         </div>

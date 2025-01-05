@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./checkbox.module.css";
 
-function Checkbox({ item, onTaskToggle }) {
+function Checkbox({ item, handleCompleteToggle }) {
   return (
     <input
       type="checkbox"
@@ -10,7 +10,7 @@ function Checkbox({ item, onTaskToggle }) {
       value={`ckbox-${item.id}`}
       checked={item.completed}
       className={styles.checkbox}
-      onChange={() => onTaskToggle(item.id)}
+      onChange={() => handleCompleteToggle(item.id)}
     />
   );
 }
