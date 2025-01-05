@@ -16,6 +16,7 @@ function List({ list, onTaskToggle }) {
                     name={`ckbox-${key}`}
                     value={`ckbox-${item.id}`}
                     checked={item.completed}
+                    contentEditable={true}
                     onChange={() => onTaskToggle(item.id)}
                   />
                   <label

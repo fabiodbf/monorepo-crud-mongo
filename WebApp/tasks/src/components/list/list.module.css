@@ -3,10 +3,35 @@
 .list {
   > li {
     margin: 8px 0px;
-    border-bottom: 1px solid var(--transparent-gray);
+    border-bottom: 1px dotted var(--transparent-gray);
     display: flex;
     align-items: center;
     gap: 0.5em;
+  }
+
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.5em;
+    height: 1.2em;
+    border-left: 1px solid var(--transparent-gray);
+    border-right: 1px solid var(--transparent-gray);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]:hover {
+    background: radial-gradient(circle, #ffffff00 50%, #bababa 100%);
+  }
+
+  input[type="checkbox"]:checked::before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    color: #5aae05;
+    font-weight: bold;
+    position: relative;
+    top: 10%;
+    left: 20%;
   }
 }
 

@@ -23,6 +23,12 @@ function Container() {
     );
   };
 
+  const handleTaskDeleteAllFinished = () => {
+    setTasks((prevTasks) =>
+      prevTasks.filter((task) => task.completed !== true)
+    );
+  };
+
   return (
     <div id={styles["container"]}>
       <div id={styles["top"]}>
@@ -30,7 +36,10 @@ function Container() {
           <h1>Task List</h1>
         </div>
         <div id="top-controls">
-          <button className={styles["new-button"]}>
+          <button
+            className={styles["new-button"]}
+            onClick={handleTaskDeleteAllFinished}
+          >
             <i class="fa fa-trash" aria-hidden="true"></i>
             &nbsp;
             <span>delete all finished</span>
