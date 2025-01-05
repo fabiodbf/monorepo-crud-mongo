@@ -1,0 +1,24 @@
+.checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.5em;
+  height: 1.2em;
+  border-left: 1px solid var(--transparent-gray);
+  border-right: 1px solid var(--transparent-gray);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkbox:hover {
+  background: radial-gradient(circle, #ffffff00 50%, #bababa 100%);
+}
+
+.checkbox:checked::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  color: #5aae05;
+  font-weight: bold;
+  position: relative;
+  top: 10%;
+  left: 20%;
+}

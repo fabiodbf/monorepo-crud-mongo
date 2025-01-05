@@ -1,0 +1,13 @@
+@import url("../../styles/variables.css");
+
+.textbox {
+  border: none;
+  background: none;
+  color: var(--darkbrownink);
+  width: 100%;
+}
+
+.finished {
+  color: var(--transparent-gray);
+  text-decoration: line-through;
+}
