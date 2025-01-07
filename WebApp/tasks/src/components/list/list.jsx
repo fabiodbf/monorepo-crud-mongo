@@ -11,7 +11,7 @@ function List({ list, handleCompleteToggle, handleTextChange }) {
           <ul className={styles.list}>
             {list.map((item, key) => {
               return (
-                <li key={key} id={`list-item-${key}`}>
+                <li key={item.id} id={`list-item-${key}`}>
                   <div className={styles.input_div_ckbox}>
                     <Checkbox
                       item={item}

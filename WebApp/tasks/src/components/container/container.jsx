@@ -36,12 +36,10 @@ function Container() {
   };
 
   const handleDeleteAllFinished = () => {
-    setTasks((prevTasks) =>
-      reOrder(
-        "order",
-        prevTasks.filter((task) => task.completed !== true)
-      )
-    );
+    setTasks((prevTasks) => {
+      const clearedTasks = prevTasks.filter((task) => !task.completed);
+      return reOrder("order", clearedTasks);
+    });
     //call api here
   };
 
