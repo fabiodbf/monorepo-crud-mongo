@@ -1,0 +1,9 @@
+- Criar uma função na helper para gerar os ids das taks
+- alterar os objetos mockados para usar o novo formato de ID
+- criar drag button para mudar ordem das tasks
+- criar função para mudar ordem das tasks
+- criar um jeito de deletar task individual
+- alterar estilo do input text quando focado para tirar borda preta feiosa
+- pensar no que fazer com o estilo para permitir tasks multiline
+- limitar a altura máxima do card das tasks para sempre permitir botão, barra de status e futuramente as propagandas em baixo
+- baseado na mudança de altura acima, fazer um scroll localizado na lista
