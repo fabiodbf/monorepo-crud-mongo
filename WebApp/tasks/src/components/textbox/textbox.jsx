@@ -25,6 +25,7 @@ function Textbox({ item, handleTextChange }) {
       id={`txt-${item.id}`}
       value={value}
       onChange={handleChange}
+      readOnly={item.completed}
       className={`${styles.textbox} ${item.completed ? styles.completed : ""}`}
     />
   );
