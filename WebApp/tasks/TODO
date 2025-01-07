@@ -1,5 +1,4 @@
-- Criar uma função na helper para gerar os ids das taks
-- alterar os objetos mockados para usar o novo formato de ID
+- corrigir bug ao apagar as tasks
 - criar drag button para mudar ordem das tasks
 - criar função para mudar ordem das tasks
 - criar um jeito de deletar task individual

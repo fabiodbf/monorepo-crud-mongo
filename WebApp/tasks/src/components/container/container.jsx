@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./container.module.css";
 import { fetchTasks } from "../../services/api";
+import { getNewId, reOrder, getOrder } from "../../util/object-utils";
 import List from "../list/list";
 import Parenthesisbutton from "../parenthesisbutton/parenthesisbutton";
 
@@ -28,7 +29,7 @@ function Container() {
   const handleTextChange = (taskId, newText) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
-        task.id == taskId ? { ...task, text: newText } : task
+        task.id === taskId ? { ...task, text: newText } : task
       )
     );
     //call api here
@@ -36,7 +37,10 @@ function Container() {
 
   const handleDeleteAllFinished = () => {
     setTasks((prevTasks) =>
-      prevTasks.filter((task) => task.completed !== true)
+      reOrder(
+        "order",
+        prevTasks.filter((task) => task.completed !== true)
+      )
     );
     //call api here
   };
@@ -44,7 +48,12 @@ function Container() {
   const handleTaskCreation = () => {
     setTasks((prevTasks) => [
       ...prevTasks,
-      { id: 99, text: "", completed: false, order: 3 },
+      {
+        id: getNewId(),
+        text: "",
+        completed: false,
+        order: getOrder("order", prevTasks),
+      },
     ]);
     //call api here
   };

@@ -7,13 +7,23 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const mockDatabase = {
   tasks: [
     {
-      id: 1,
-      text: "Complete the project documentation",
+      id: "m5lq8wj1a7p629yk",
+      text: "Complete project documentation",
       completed: false,
       order: 1,
     },
-    { id: 2, text: "Submit the weekly report", completed: true, order: 2 },
-    { id: 3, text: "Fix the login bug", completed: false, order: 3 },
+    {
+      id: "m5lq8y6t47s8b9b6",
+      text: "Submit the weekly report",
+      completed: true,
+      order: 2,
+    },
+    {
+      id: "m5lq8zusmknm9vt0",
+      text: "Fix the login bug",
+      completed: false,
+      order: 3,
+    },
   ],
 };
 

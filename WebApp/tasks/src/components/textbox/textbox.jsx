@@ -10,7 +10,7 @@ function Textbox({ item, handleTextChange }) {
       debounce((id, inputValue) => {
         handleTextChange(id, inputValue);
       }, 300),
-    []
+    [handleTextChange]
   );
 
   const handleChange = (e) => {
