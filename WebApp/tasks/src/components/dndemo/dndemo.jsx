@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 const ItemType = "TASK";
 
@@ -9,10 +9,16 @@ const DndemoTask = ({
   onIconClick,
   iconState,
   toggleComplete,
+  isPlaceholder,
 }) => {
-  const [, drag] = useDrag({
+  const ref = useRef(null);
+
+  const [{ isDragging }, drag] = useDrag({
     type: ItemType,
     item: { index },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
   });
 
   const [, drop] = useDrop({
@@ -25,40 +31,56 @@ const DndemoTask = ({
     },
   });
 
+  drag(drop(ref));
+
   return (
     <div
-      ref={(node) => drag(drop(node))}
+      ref={ref}
       style={{
         display: "flex",
         alignItems: "center",
         padding: "8px",
-        borderBottom: "1px solid #ddd",
+        marginBottom: isPlaceholder ? "4px" : "0",
+        border: isPlaceholder ? "1px dashed #aaa" : "1px solid #ddd",
+        backgroundColor: isPlaceholder
+          ? "#f0f0f0"
+          : isDragging
+          ? "#fafafa"
+          : "#fff",
+        opacity: isDragging ? 0.5 : 1,
+        transition: "transform 0.3s ease",
       }}
     >
-      <div
-        onClick={() => onIconClick(task.id)}
-        style={{
-          cursor: "pointer",
-          marginRight: "8px",
-          color: iconState === task.id ? "red" : "gray",
-        }}
-      >
-        <i
-          class={`fa ${iconState === task.id ? "fa-trash" : "fa-ellipsis-v"}`}
-          aria-hidden="true"
-        ></i>
-      </div>
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => toggleComplete(task.id)}
-        style={{ marginRight: "8px" }}
-      />
-      <span
-        style={{ textDecoration: task.completed ? "line-through" : "none" }}
-      >
-        {task.text}
-      </span>
+      {!isPlaceholder && (
+        <>
+          <div
+            onClick={() => onIconClick(task.id)}
+            style={{
+              cursor: "pointer",
+              marginRight: "8px",
+              color: iconState === task.id ? "red" : "gray",
+            }}
+          >
+            <i
+              class={`fa ${
+                iconState === task.id ? "fa-trash" : "fa-ellipsis-v"
+              }`}
+              aria-hidden="true"
+            ></i>
+          </div>
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => toggleComplete(task.id)}
+            style={{ marginRight: "8px" }}
+          />
+          <span
+            style={{ textDecoration: task.completed ? "line-through" : "none" }}
+          >
+            {task.text}
+          </span>
+        </>
+      )}
     </div>
   );
 };
@@ -71,6 +93,7 @@ const Dndemo = () => {
   ]);
 
   const [iconState, setIconState] = useState(null);
+  const [draggedItemIndex, setDraggedItemIndex] = useState(null);
 
   const moveTask = (fromIndex, toIndex) => {
     const updatedTasks = [...tasks];
@@ -96,6 +119,14 @@ const Dndemo = () => {
     }
   };
 
+  const handleDragStart = (index) => {
+    setDraggedItemIndex(index);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedItemIndex(null);
+  };
+
   return (
     <div>
       {tasks.map((task, index) => (
@@ -107,6 +138,7 @@ const Dndemo = () => {
           onIconClick={handleIconClick}
           iconState={iconState}
           toggleComplete={toggleComplete}
+          isPlaceholder={index === draggedItemIndex}
         />
       ))}
     </div>
