@@ -1,3 +1,6 @@
+- fazer os itens serem divs com content editable
+- fazer delete individual ficar do lado direito da lista disponível no hover
+- deixar uma opção configuração togleave de se quer ou não fazer os itens concluidos ficarem separados
 - criar drag button para mudar ordem das tasks
 - criar função para mudar ordem das tasks
 - criar um jeito de deletar task individual

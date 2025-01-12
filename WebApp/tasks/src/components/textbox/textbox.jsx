@@ -20,14 +20,15 @@ function Textbox({ item, handleTextChange }) {
   };
 
   return (
-    <input
-      type="text"
-      id={`txt-${item.id}`}
-      value={value}
-      onChange={handleChange}
-      readOnly={item.completed}
-      className={`${styles.textbox} ${item.completed ? styles.completed : ""}`}
-    />
+    <div contentEditable="true">{value}</div>
+    // <input
+    //   type="text"
+    //   id={`txt-${item.id}`}
+    //   value={value}
+    //   onChange={handleChange}
+    //   readOnly={item.completed}
+    //   className={`${styles.textbox} ${item.completed ? styles.completed : ""}`}
+    // />
   );
 }
 
